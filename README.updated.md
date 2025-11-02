@@ -52,18 +52,25 @@ Notes: messages are kept in server memory (capped to recent 100 messages). This 
 
 Prerequisites: Node.js 18+ recommended, npm.
 
-Open two terminals (one for server, one for client). In PowerShell you can run:
+Install dependencies (from project root) and optionally create .env files from examples:
 
 ```powershell
-# Server terminal
-cd "c:\Users\USER PC\Desktop\plp_academy\plp full stack web\real-time-communication-with-socket-io-Raphael114(Assignment 5)\server"
+# Install dev helper (concurrently) and server/client deps
 npm install
+npm run install:all
+
+# Create .env files from the provided examples (will NOT overwrite existing .env files)
+npm run env:setup
+```
+
+Start both servers:
+
+```powershell
+# Start server and client together (no browser auto-open)
 npm run dev
 
-# Client terminal
-cd "c:\Users\USER PC\Desktop\plp_academy\plp full stack web\real-time-communication-with-socket-io-Raphael114(Assignment 5)\client"
-npm install
-npm run dev
+# Start and open the client in your browser (Vite's --open)
+npm run dev:open
 ```
 
 Default ports used by the project:
@@ -72,14 +79,14 @@ Default ports used by the project:
 
 If you need custom addresses, the server reads `CLIENT_URL` from environment variables to configure socket CORS. The client can use `VITE_SOCKET_URL` to point to a different server.
 
-Example .env (server):
+Example .env (server) — copy to `server/.env` or use `npm run env:setup` to create it:
 
 ```
 PORT=5000
 CLIENT_URL=http://localhost:5173
 ```
 
-Example .env for client (Vite):
+Example .env for client (Vite) — copy to `client/.env` or use `npm run env:setup`:
 
 ```
 VITE_SOCKET_URL=http://localhost:5000
@@ -110,4 +117,5 @@ Notes on browser notifications: the client requests notification permission when
 MIT
 
 ---
-If you want, I can also add a short CONTRIBUTING.md, example .env files in each folder, or add scripts to run both client and server with a single command. Tell me which you'd like next.
+
+If you want, I can replace the original `README.md` with this updated version or keep both files. Tell me which you'd prefer.
